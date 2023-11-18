@@ -7,6 +7,14 @@ var userClickedPattern = [];
 var started = false;
 var level = 0;
 
+$(".start").click(function() {
+  $(".start").addClass("pressed");
+  setTimeout(function () {
+    $(".start").removeClass("pressed");
+  }, 100);
+  nextSequence();
+  });
+
 $(document).keypress(function() {
   if (!started) {
     $("#level-title").text("Level " + level);
