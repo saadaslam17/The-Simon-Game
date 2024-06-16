@@ -7,13 +7,16 @@ var userClickedPattern = [];
 var started = false;
 var level = 0;
 
-$(".start").click(function() {
-  $(".start").addClass("pressed");
-  setTimeout(function () {
-    $(".start").removeClass("pressed");
-  }, 100);
-  nextSequence();
-  });
+$(".start").click(function () {
+  if (!started) {
+    $(".start").addClass("pressed");
+    setTimeout(function () {
+      $(".start").removeClass("pressed");
+    }, 100);
+    nextSequence();
+    started = true;
+  }
+});
 
 $(document).keypress(function() {
   if (!started) {
